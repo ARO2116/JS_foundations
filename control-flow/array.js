@@ -1,3 +1,19 @@
+// ARRAYS.
+// Are list-like objects
+// let apples = "apples"
+// let bananas = "bananas"
+// let oranges = "oranges"
+
+let fruits = ["oranges", "apples", "bananas", "watermelons"]
+let a = fruits[1];
+let b = fruits[fruits.length - 2]
+let lengthOfFruitsArray = fruits.length
+console.log(lengthOfFruitsArray);
+console.log(a);
+console.log(b);
+
+
+
 // Using string.repeat()
 const repeatedStr = "abc".repeat(3);
 console.log(repeatedStr);
