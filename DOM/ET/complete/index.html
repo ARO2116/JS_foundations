@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FIN-TRACK</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #111;
+      background-image: repeating-linear-gradient(45deg, #111 0, #111 10px, #1a1a1a 10px, #1a1a1a 20px);
+      color: white;
+      font-family: 'Comic Sans MS', cursive;
+    }
+    .neon-input {
+      border: 1px solid #f87171;
+      background-color: transparent;
+      color: white;
+    }
+    .neon-input:focus {
+      outline: none;
+      box-shadow: 0 0 10px #f87171;
+    }
+    .neon-button {
+      background-color: #064e3b;
+      border: 1px solid #22c55e;
+      color: #22c55e;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+
+  <div class="w-full max-w-md px-4 py-6 space-y-10" id="app">
+
+    <!-- Login -->
+    <div id="loginPage" class="space-y-4">
+      <h1 class="text-2xl text-center font-bold">FIN-TRACK</h1>
+      <input type="text" placeholder="Username" class="w-full p-2 neon-input rounded" />
+      <input type="password" placeholder="Password" class="w-full p-2 neon-input rounded" />
+      <button onclick="goTo('dashboardPage')" class="w-full py-2 neon-button rounded">Login</button>
+      <p class="text-center text-sm mt-2"><a href="#" onclick="goTo('registerPage')" class="underline text-pink-400">Create account</a></p>
+    </div>
+
+    <!-- Register -->
+    <div id="registerPage" class="space-y-4 hidden">
+      <h1 class="text-2xl text-center font-bold">FIN-TRACK</h1>
+      <input type="text" placeholder="Name" class="w-full p-2 neon-input rounded" />
+      <input type="email" placeholder="Email" class="w-full p-2 neon-input rounded" />
+      <input type="tel" placeholder="Phone" class="w-full p-2 neon-input rounded" />
+      <input type="text" placeholder="Username" class="w-full p-2 neon-input rounded" />
+      <input type="password" placeholder="Password" class="w-full p-2 neon-input rounded" />
+      <button onclick="goTo('dashboardPage')" class="w-full py-2 neon-button rounded">Register</button>
+      <p class="text-center text-sm mt-2"><a href="#" onclick="goTo('loginPage')" class="underline text-pink-400">Back to login</a></p>
+    </div>
+
+    <!-- Profile -->
+    <div id="profilePage" class="space-y-4 hidden">
+      <h1 class="text-2xl text-center font-bold">FIN-TRACK</h1>
+      <div class="mx-auto w-24 h-24 bg-green-900 rounded-full"></div>
+      <input type="text" value="John Wick" class="w-full p-2 neon-input rounded" />
+      <input type="email" value="johnwick@gmail.com" class="w-full p-2 neon-input rounded" />
+      <input type="tel" value="+254712345678" class="w-full p-2 neon-input rounded" />
+      <input type="text" value="johnwick" class="w-full p-2 neon-input rounded" />
+      <input type="password" value="************" class="w-full p-2 neon-input rounded" />
+      <button onclick="goTo('dashboardPage')" class="w-full py-2 neon-button rounded">Update Profile</button>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboardPage" class="hidden">
+      <div class="text-white text-xl font-bold mb-4">Welcome, John Wick</div>
+      <div class="flex justify-between gap-4 mb-4">
+        <div class="border px-4 py-2 text-orange-400">Balance<br><span class="text-2xl">20,000</span></div>
+        <div class="border px-4 py-2 text-green-400">Income<br><span class="text-2xl">50,000</span></div>
+        <div class="border px-4 py-2 text-red-400">Expenses<br><span class="text-2xl">30,000</span></div>
+      </div>
+
+      <div class="space-y-2 mb-4">
+        <input type="number" placeholder="Amount" class="w-full p-2 neon-input rounded" />
+        <select class="w-full p-2 neon-input rounded">
+          <option selected disabled>Select Transaction Type</option>
+          <option>Income</option>
+          <option>Expense</option>
+        </select>
+        <textarea placeholder="Description" class="w-full p-2 neon-input rounded"></textarea>
+        <button class="w-full py-2 neon-button rounded">Add Record</button>
+      </div>
+
+      <div class="flex justify-between gap-2 mb-2">
+        <select class="p-2 neon-input rounded text-white bg-transparent">
+          <option>All</option>
+        </select>
+        <input type="text" placeholder="Search by description" class="p-2 neon-input rounded" />
+        <input type="date" class="p-2 neon-input rounded" />
+        <button class="px-4 neon-button rounded">Export</button>
+      </div>
+
+      <table class="w-full text-left border border-gray-500">
+        <thead>
+          <tr class="border-b border-gray-500">
+            <th class="px-2 py-1">#</th>
+            <th class="px-2 py-1">Amount</th>
+            <th class="px-2 py-1">Date</th>
+            <th class="px-2 py-1">Trx Type</th>
+            <th class="px-2 py-1">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t border-gray-500">
+            <td class="px-2 py-1">1</td>
+            <td class="px-2 py-1">5000</td>
+            <td class="px-2 py-1">2025-07-01</td>
+            <td class="px-2 py-1 text-green-400">Income</td>
+            <td class="px-2 py-1">Freelance</td>
+          </tr>
+          <tr class="border-t border-gray-500">
+            <td class="px-2 py-1">2</td>
+            <td class="px-2 py-1">3000</td>
+            <td class="px-2 py-1">2025-07-02</td>
+            <td class="px-2 py-1 text-red-400">Expense</td>
+            <td class="px-2 py-1">Groceries</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="text-center mt-4">
+        <button onclick="goTo('profilePage')" class="underline text-pink-400 text-sm">Edit Profile</button> |
+        <button onclick="goTo('loginPage')" class="underline text-pink-400 text-sm">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goTo(pageId) {
+      const pages = ['loginPage', 'registerPage', 'dashboardPage', 'profilePage'];
+      pages.forEach(id => document.getElementById(id).classList.add('hidden'));
+      document.getElementById(pageId).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
